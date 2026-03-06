@@ -3,3 +3,10 @@
 
 #include "TempoGameMode.h"
 
+ATempoGameMode::ATempoGameMode()
+{
+}
+
+void ATempoGameMode::PawnKilled(AActor* Victim)
+{
+}

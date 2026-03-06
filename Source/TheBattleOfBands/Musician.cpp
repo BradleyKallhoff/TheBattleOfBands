@@ -14,14 +14,14 @@ AMusician::AMusician()
 	PrimaryActorTick.bCanEverTick = true;
 
 	// Root Component
-	UCapsuleComponent* CapsuleComponent = CreateDefaultSubobject<UCapsuleComponent>("RootComponent");
+	UCapsuleComponent* CapsuleComponent = CreateDefaultSubobject<UCapsuleComponent>("Root Component");
 	RootComponent = CapsuleComponent;
 	CapsuleComponent->SetCapsuleRadius(80.0f);
 	CapsuleComponent->SetCapsuleHalfHeight(180.0f);
 	CapsuleComponent->SetCollisionProfileName(TEXT("Pawn"));
 	
 	// Flipbook Component
-	FlipbookComponent = CreateDefaultSubobject<UTempoFlipbookComponent>(TEXT("Flipbook"));
+	FlipbookComponent = CreateDefaultSubobject<UTempoFlipbookComponent>(TEXT("Tempo Flipbook"));
 	FlipbookComponent->SetupAttachment(RootComponent);
 	
 }

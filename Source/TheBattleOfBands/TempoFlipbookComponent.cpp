@@ -21,6 +21,11 @@ void UTempoFlipbookComponent::BeginPlay()
 	TempoClock->SubscribeToQuantizationEvent(GetWorld(), EQuartzCommandQuantization::ThirtySecondNote, 
 		OnQuartzMetronomeEvent, TempoClock);
 	
+	AActor* Owner = Cast<AActor>(GetOwner());
+	if (Owner == nullptr) {
+		UE_LOG(LogTemp, Warning, TEXT("NO OWNER"));
+		return;
+	}
 	UE_LOG(LogTemp, Warning, TEXT("%s"), *GetOwner()->GetName());
 	OwnerMusician = Cast<AMusician>(GetOwner());
 	if (!OwnerMusician) UE_LOG(LogTemp, Error, TEXT("UH OH! FLIPBOOK WITH NO OWNER..."));
@@ -36,6 +41,7 @@ void UTempoFlipbookComponent::BeginPlay()
 	};
 	
 	SetFlipbook(IdleFlipbook.Flipbook);
+	CurrentTempoFlipbook = IdleFlipbook;
 }
 
 void UTempoFlipbookComponent::TickComponent(float DeltaTime, enum ELevelTick TickType,

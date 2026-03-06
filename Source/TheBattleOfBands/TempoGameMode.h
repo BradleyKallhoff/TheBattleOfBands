@@ -14,4 +14,13 @@ class THEBATTLEOFBANDS_API ATempoGameMode : public AGameModeBase
 {
 	GENERATED_BODY()
 	
+public:
+	ATempoGameMode();
+	
+	UPROPERTY(EditAnywhere, Category="Music")
+	int32 BeatsPerMinute = 120;
+	UPROPERTY(EditAnywhere, Category="Music")
+	bool bIsWaltz = false;
+	
+	void PawnKilled(AActor* Victim);
 };
